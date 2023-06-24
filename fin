@@ -1,0 +1,15 @@
+import yfinance as yf
+
+class StockAnalyzer:
+    def __init__(self, stock_symbol):
+        self.stock_symbol = stock_symbol
+
+    def get_stock_data(self):
+        stock = yf.Ticker(self.stock_symbol)
+        stock_data = stock.history(period="1y")
+        print(stock_data)
+
+if __name__ == '__main__':
+    stock_analyzer = StockAnalyzer("AAPL")
+
+    stock_analyzer.get_stock_data()
